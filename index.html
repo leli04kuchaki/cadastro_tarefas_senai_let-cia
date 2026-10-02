@@ -1,70 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Meu Painel de Tarefas</title>
-
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    >
-
-    <!-- CSS -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- Foto de fundo -->
-    <div class="foto-container">
-        <img src="image.png" alt="Foto do meu cachorro">
-    </div>
-
-    <!-- Painel principal -->
     <div class="cartao-aplicacao">
 
         <header class="cabecalho-aplicacao">
             <h1>Minhas Tarefas</h1>
-
-            <button id="botao-tema" class="botao-icone">
+            <button id="botao-tema" class="botao-icone" title="Alternar tema">
                 <i class="fa-solid fa-moon"></i>
             </button>
         </header>
 
-        <!-- Campo para adicionar tarefa -->
-        <div class="caixa-entrada">
+        <div class="aviso-novidades">
+            <strong>Novas funcionalidades:</strong>
+            <span>Favoritar tarefas e definir horário de início e término!</span>
+        </div>
 
-            <input
-                type="text"
-                id="campo-tarefa"
-                placeholder="O que vamos fazer hoje?"
+        <!-- Formulário de entrada com texto e horários -->
+        <div class="caixa-entrada-container">
+            <input 
+                type="text" 
+                id="campo-tarefa" 
+                placeholder="O que vamos fazer hoje?" 
+                autocomplete="off"
             >
+
+            <div class="caixa-horarios">
+                <div class="campo-horario">
+                    <label for="hora-inicio"><i class="fa-regular fa-clock"></i> Início:</label>
+                    <input type="time" id="hora-inicio">
+                </div>
+                <div class="campo-horario">
+                    <label for="hora-fim"><i class="fa-solid fa-flag-checkered"></i> Fim:</label>
+                    <input type="time" id="hora-fim">
+                </div>
+            </div>
 
             <button id="botao-adicionar" class="botao-principal">
                 <i class="fa-solid fa-plus"></i>
-                Adicionar
+                Adicionar Tarefa
             </button>
-
         </div>
 
-        <!-- Lista de tarefas -->
+        <!-- Filtros das tarefas -->
+        <div class="filtros-tarefas">
+            <button id="botao-todas" class="botao-filtro ativo">Todas</button>
+            <button id="botao-favoritas" class="botao-filtro">
+                <i class="fa-solid fa-star"></i> Favoritas
+            </button>
+            <button id="botao-pendentes" class="botao-filtro">Pendentes</button>
+            <button id="botao-concluidas" class="botao-filtro">Concluídas</button>
+            <button id="botao-limpar-concluidas" class="botao-filtro destaque-limpar">Limpar concluídas</button>
+        </div>
+
         <ul id="lista-tarefas" class="lista-tarefas"></ul>
 
-        <!-- Rodapé -->
         <footer class="rodape-aplicacao">
-            <span id="contador-tarefas">
-                0 tarefas na lista
-            </span>
+            <span id="contador-tarefas">0 tarefas na lista</span>
         </footer>
 
     </div>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
-
 </body>
 </html>
